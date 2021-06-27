@@ -7,6 +7,7 @@ plantuml to an inline dataurl png ```<img>```
 * [eleventy](https://www.npmjs.com/package/@11ty/eleventy) A simpler static site generator for which this plugin is make.
 * [sync-request](https://www.npmjs.com/package/sync-request) (for making blocking synchronous http request - not to be used in production)
 * [jest](https://www.npmjs.com/package/jest) (for executing unit tests)
+* [prettier](https://www.npmjs.com/package/prettier) (for keeping things clean and tidy)
 
 ## Installation
 
@@ -58,15 +59,17 @@ plugin -> MDH: img src="dataurl"
 `` `
 ```
 
-The result is the following image inserted (inline) in the generated html site
+The result is an image inserted (inline) in the generated html site (click to open)
 
-![sequence diagram](./diagram.png)
+[Sequence diagram](https://github.com/awaragi/eleventy-plugin-plantuml/blob/master/diagram.png)
 
 ## Contribute
 * create a fork of this repo 
 * make your changes
+* run prettier for code format consistency
 * test your code by running ```yarn test``` or ```npm test```
 * create a Pull Request
+* Send me an email in case I miss the PR notification
 
 
 ## Testing

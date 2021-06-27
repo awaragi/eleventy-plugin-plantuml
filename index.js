@@ -1,1 +1,1 @@
-module.exports = require('./lib/eleventy-plugin-plantuml');
+module.exports = { plugin: require('./lib/eleventy-plugin-plantuml')};
