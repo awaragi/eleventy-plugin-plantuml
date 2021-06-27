@@ -1,0 +1,18 @@
+{
+  "name": "eleventy-plugin-plantuml",
+  "version": "0.9.0",
+  "description": "Eleventy (11ty) Plantuml markdown plugin",
+  "main": "index.js",
+  "repository": "git@github.com:awaragi/eleventy-plugin-plantuml.git",
+  "author": "Pierre Awaragi <pierre@awaragi.com>",
+  "license": "MIT",
+  "scripts": {
+    "test": "jest test"
+  },
+  "devDependencies": {
+    "jest": "^27.0.5"
+  },
+  "dependencies": {
+    "sync-request": "^6.1.0"
+  }
+}
