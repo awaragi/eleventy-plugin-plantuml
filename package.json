@@ -16,6 +16,7 @@
     "highlighter",
     "share"
   ],
+  "homepage": "https://github.com/awaragi/eleventy-plugin-plantuml",
   "bugs": {
     "url": "https://github.com/awaragi/eleventy-plugin-plantuml/issues"
   },
