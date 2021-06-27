@@ -12,15 +12,18 @@ plantuml to an inline dataurl png ```<img>```
 
 > This plugin requires markdown syntax highlighter plugin to work.
 
-Add Eleventy syntaxhighlight plugin
+Ensure that the Eleventy syntaxhighlight plugin is added to .eleventy.js configuration
 ```javascript
 const syntaxHighlight = require('@11ty/eleventy-plugin-syntaxhighlight');
+// ...
+eleventyConfig.addPlugin(syntaxHighlight);
 ```
 
-Add plugin to .eleventy.js configuration file and optionally provide the configuration for private Plantuml server
+Add plantuml plugin to configuration and optionally provide the configuration for private Plantuml server and imgClass
 ```javascript
     eleventyConfig.addPlugin(syntaxHighlight);
-    eleventyConfig.addPlugin(plantuml, {
+    eleventyConfig.addPlugin(plantuml.plugin, {
+        protocol: 'http',
         hostname: "localhost",
         port: 8888,
         prefix: "",
@@ -28,9 +31,9 @@ Add plugin to .eleventy.js configuration file and optionally provide the configu
     });
 ```
 
-if options are omited, the plugin defaults to <http://plantuml.com/plantuml> server for conversion. 
+if the server options are omited, the plugin defaults to <http://plantuml.com/plantuml> server for conversion. 
 
-The generated img tag will have class plantuml assigned to it. This can be override using options.imgClass value.
+By default the generated img tag will have class **plantuml** assigned to it. This can be overridden using options.imgClass value.
 
 ## Using in templates
 Simply create a markdown code block of type plantuml and it will be replaced by an img with inline png src (dataurl).
