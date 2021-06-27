@@ -10,16 +10,27 @@
 
 ## Installation
 
-Add plugin to .eleventy.js configuration file and optionally provide a private Plantuml server
+> This plugin requires markdown syntax highlighter plugin to work.
+
+Add Eleventy syntaxhighlight plugin
 ```javascript
+const syntaxHighlight = require('@11ty/eleventy-plugin-syntaxhighlight');
+```
+
+Add plugin to .eleventy.js configuration file and optionally provide the configuration for private Plantuml server
+```javascript
+    eleventyConfig.addPlugin(syntaxHighlight);
     eleventyConfig.addPlugin(plantuml, {
         hostname: "localhost",
         port: 8888,
-        prefix: ""
+        prefix: "",
+        imgClass: "plantuml"
     });
 ```
 
 if options are omited, the plugin defaults to <http://plnntuml.com/plantuml> server for conversion. 
+
+The generated img tag will have class plantuml assigned to it. This can be override using options.imgClass value.
 
 ## Using in templates
 Simply create a markdown code block of type plantuml and it will be replaced by an img with inline png src (dataurl).

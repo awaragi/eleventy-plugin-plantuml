@@ -6,13 +6,26 @@
   "repository": "git@github.com:awaragi/eleventy-plugin-plantuml.git",
   "author": "Pierre Awaragi <pierre@awaragi.com>",
   "license": "MIT",
+  "keywords": [
+    "11ty",
+    "eleventy",
+    "plantuml",
+    "plugin",
+    "diagram",
+    "markdown",
+    "highlighter",
+    "share"
+  ],
+  "bugs": {
+    "url": "https://github.com/awaragi/eleventy-plugin-plantuml/issues"
+  },
   "scripts": {
     "test": "jest test"
   },
-  "devDependencies": {
-    "jest": "^27.0.5"
-  },
   "dependencies": {
     "sync-request": "^6.1.0"
+  },
+  "devDependencies": {
+    "jest": "^27.0.5"
   }
 }
