@@ -1,7 +1,7 @@
 # eleventy-plugin-plantuml
 
-> Eleventy Plantuml plugin. Uses sync request to connect to a plantuml server to convert markddown code block of type 
-> plantuml to an inline dataurl png ```<img>```
+[Eleventy](https://www.11ty.dev/) - [Plantuml](https://plantuml.com/) - [Plugin](https://www.11ty.dev/docs/plugins/). Uses sync request to connect to a plantuml server to convert markddown code block of type 
+plantuml to an inline dataurl png ```<img>```
 
 ## Dependencies
 * [eleventy](https://www.npmjs.com/package/@11ty/eleventy) A simpler static site generator for which this plugin is make.
@@ -28,7 +28,7 @@ Add plugin to .eleventy.js configuration file and optionally provide the configu
     });
 ```
 
-if options are omited, the plugin defaults to <http://plnntuml.com/plantuml> server for conversion. 
+if options are omited, the plugin defaults to <http://plantuml.com/plantuml> server for conversion. 
 
 The generated img tag will have class plantuml assigned to it. This can be override using options.imgClass value.
 
