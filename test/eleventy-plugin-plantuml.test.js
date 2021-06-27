@@ -1,4 +1,4 @@
-const eleventyPluginPlantuml = require("../index");
+const eleventyPluginPlantuml = require("../lib/eleventy-plugin-plantuml");
 describe("Eleventy PlantUML Test Suite", () => {
   it("Testing a e2e basic conversion", () => {
     const img = eleventyPluginPlantuml.highlight(
