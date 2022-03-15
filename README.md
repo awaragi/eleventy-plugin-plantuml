@@ -1,48 +1,50 @@
 # eleventy-plugin-plantuml
 
-[Eleventy](https://www.11ty.dev/) - [Plantuml](https://plantuml.com/) - [Plugin](https://www.11ty.dev/docs/plugins/). Uses sync request to connect to a plantuml server to convert markddown code block of type 
-plantuml to an inline dataurl png ```<img>```
+[Eleventy](https://www.11ty.dev/) - [Plantuml](https://plantuml.com/) - [Plugin](https://www.11ty.dev/docs/plugins/). Uses sync request to connect to a plantuml server to convert markdown code block of type plantuml to an inline dataurl png `<img>`, or to svg code.
 
 ## Dependencies
-* [eleventy](https://www.npmjs.com/package/@11ty/eleventy) A simpler static site generator for which this plugin is make.
-* [sync-request](https://www.npmjs.com/package/sync-request) (for making blocking synchronous http request - not to be used in production)
-* [jest](https://www.npmjs.com/package/jest) (for executing unit tests)
-* [prettier](https://www.npmjs.com/package/prettier) (for keeping things clean and tidy)
+
+- [eleventy](https://www.npmjs.com/package/@11ty/eleventy) A simpler static site generator for which this plugin is make.
+- [sync-request](https://www.npmjs.com/package/sync-request) (for making blocking synchronous http request - not to be used in production)
+- [jest](https://www.npmjs.com/package/jest) (for executing unit tests)
+- [prettier](https://www.npmjs.com/package/prettier) (for keeping things clean and tidy)
 
 ## Installation
 
 > This plugin requires markdown syntax highlighter plugin to work.
 
 Ensure that the Eleventy syntaxhighlight plugin is added to .eleventy.js configuration
+
 ```javascript
-const syntaxHighlight = require('@11ty/eleventy-plugin-syntaxhighlight');
+const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 // ...
 eleventyConfig.addPlugin(syntaxHighlight);
 ```
 
-Add plantuml plugin to configuration and optionally provide the configuration for private Plantuml server and imgClass
+Add plantuml plugin to configuration and optionally provide the configuration for private Plantuml server, imgClass, and output type.
+
 ```javascript
-    eleventyConfig.addPlugin(syntaxHighlight);
-    eleventyConfig.addPlugin(plantuml.plugin, {
-        protocol: 'http',
-        hostname: "localhost",
-        port: 8888,
-        prefix: "",
-        imgClass: "plantuml"
-    });
+const plantuml = require('eleventy-plugin-plantuml');
+eleventyConfig.addPlugin(plantuml.plugin, {
+  protocol: "http",
+  hostname: "localhost",
+  port: 8888,
+  prefix: "",
+  outputType: "svg",
+  imgClass: "plantuml",
+});
 ```
 
-if the server options are omited, the plugin defaults to <http://plantuml.com/plantuml> server for conversion. 
+If the server options are omitted, the plugin defaults to <http://plantuml.com/plantuml> server for conversion, and to PNG for output type.
 
 By default the generated img tag will have class **plantuml** assigned to it. This can be overridden using options.imgClass value.
 
 ## Using in templates
-Simply create a markdown code block of type plantuml and it will be replaced by an img with inline png src (dataurl).
 
->In the following example, there is an extra space between the ticks ` for escaping
+Simply create a markdown code block of type plantuml. It will be replaced by an img with inline png src (dataurl), or with svg code, depending on the value of the option `outputType`.
 
-```
-`` `plantuml
+````
+```plantuml
 @startuml
 !include https://raw.githubusercontent.com/bschwarz/puml-themes/master/themes/bluegray/puml-theme-bluegray.puml
 participant "Makrdown Highlighter" as MDH
@@ -56,21 +58,22 @@ plantuml -> plugin: image/png
 plugin -> plugin: base64
 plugin -> MDH: img src="dataurl"
 @enduml
-`` `
 ```
+````
 
 The result is an image inserted (inline) in the generated html site (click to open)
 
 [Sequence diagram](https://github.com/awaragi/eleventy-plugin-plantuml/blob/master/diagram.png)
 
 ## Contribute
-* create a fork of this repo 
-* make your changes
-* run prettier for code format consistency
-* test your code by running ```yarn test``` or ```npm test```
-* create a Pull Request
-* Send me an email in case I miss the PR notification
 
+- create a fork of this repo
+- make your changes
+- run prettier for code format consistency
+- test your code by running `yarn test` or `npm test`
+- create a Pull Request
+- Send me an email in case I miss the PR notification
 
 ## Testing
-Execute ```yarn test``` or ```npm test``` to execute integration tests against <plantuml.com/plantuml> live server
+
+Execute `yarn test` or `npm test` to execute integration tests against <plantuml.com/plantuml> live server
