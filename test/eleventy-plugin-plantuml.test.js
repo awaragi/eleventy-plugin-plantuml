@@ -72,6 +72,30 @@ plugin -> MDH: img src="dataurl"
     );
   });
 
+  it("Testing e2e conversion w/txt output type", () => {
+    const img = eleventyPluginPlantuml.highlight(
+      `@startuml
+Bob -> Alice : hello
+@enduml`,
+      Object.assign({}, eleventyPluginPlantuml.defaultOptions, {
+        outputType: "txt",
+      })
+    );
+    expect(img).toBe("");
+  });
+
+  it("Testing e2e conversion w/invalid output type", () => {
+    const img = eleventyPluginPlantuml.highlight(
+      `@startuml
+Bob -> Alice : hello
+@enduml`,
+      Object.assign({}, eleventyPluginPlantuml.defaultOptions, {
+        outputType: "asdf",
+      })
+    );
+    expect(img).toBe("");
+  });
+
   it("Testing url generation", () => {
     const url = eleventyPluginPlantuml.generatePlantumlUrl("ABC", {
       protocol: "https",
