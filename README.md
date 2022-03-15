@@ -24,7 +24,7 @@ eleventyConfig.addPlugin(syntaxHighlight);
 Add plantuml plugin to configuration and optionally provide the configuration for private Plantuml server, imgClass, and output type.
 
 ```javascript
-eleventyConfig.addPlugin(syntaxHighlight);
+const plantuml = require('eleventy-plugin-plantuml')
 eleventyConfig.addPlugin(plantuml.plugin, {
   protocol: "http",
   hostname: "localhost",
