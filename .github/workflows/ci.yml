@@ -1,7 +1,9 @@
-name: Package and publish
+name: Test
 on:
-  release:
-    types: [created]
+  pull_request:
+    types: [opened, ready_for_review, review_requested, synchronize]
+  push: 
+    branches: ['master']
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -10,12 +12,9 @@ jobs:
       # Setup .npmrc file to publish to npm
       - uses: actions/setup-node@v2
         with:
-          node-version: "14.x"
-          registry-url: "https://registry.npmjs.org"
+          node-version: '14.x'
+          registry-url: 'https://registry.npmjs.org'
           # Defaults to the user or organization that owns the workflow file
-          scope: "@octocat"
+          scope: '@octocat'
       - run: yarn
       - run: yarn test
-      - run: yarn publish
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
