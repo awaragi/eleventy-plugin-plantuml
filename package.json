@@ -9,6 +9,7 @@
   "keywords": [
     "11ty",
     "eleventy",
+    "eleventy-plugin",
     "plantuml",
     "plugin",
     "diagram",
