@@ -1,6 +1,6 @@
 {
   "name": "eleventy-plugin-plantuml",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "Eleventy (11ty) Plantuml markdown plugin",
   "main": "index.js",
   "repository": "git@github.com:awaragi/eleventy-plugin-plantuml.git",
