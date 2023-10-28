@@ -1,5 +1,8 @@
 # eleventy-plugin-plantuml
 
+[![NPM Version](https://img.shields.io/npm/v/eleventy-plugin-plantuml)](https://www.npmjs.com/package/eleventy-plugin-plantuml)
+[![NPM Downloads](https://img.shields.io/npm/dt/eleventy-plugin-plantuml)](https://www.npmjs.com/package/eleventy-plugin-plantuml)
+
 [Eleventy](https://www.11ty.dev/) - [Plantuml](https://plantuml.com/) - [Plugin](https://www.11ty.dev/docs/plugins/). Uses sync request to connect to a plantuml server to convert markdown code block of type plantuml to an inline dataurl png `<img>`, or to svg code.
 
 ## Dependencies
