@@ -132,4 +132,35 @@ Bob -> Alice : hello
             '<img class="plantuml" src="data:image/png;base64,ABC" alt="Plantuml Diagram" />'
         );
     });
+
+    it("Test request timeout", () => {
+        try {
+            eleventyPluginPlantuml.highlight(
+                `@startuml @enduml`,
+                Object.assign({}, eleventyPluginPlantuml.defaultOptions, {
+                    requestTimeout: 1,
+                })
+            );
+            // should not get here
+            expect(false).beTruthy();
+        } catch (e) {
+            // test passed
+            expect(e).toBeInstanceOf(Error);        }
+    });
+
+    it("Test request socket timeout", () => {
+        try {
+            eleventyPluginPlantuml.highlight(
+                `@startuml @enduml`,
+                Object.assign({}, eleventyPluginPlantuml.defaultOptions, {
+                    requestSocketTimeout: 1,
+                })
+            );
+            // should not get here
+            expect(false).beTruthy();
+        } catch (e) {
+            // test passed
+            expect(e).toBeInstanceOf(Error);
+        }
+    });
 });
