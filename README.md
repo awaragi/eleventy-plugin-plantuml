@@ -80,3 +80,7 @@ The result is an image inserted (inline) in the generated html site (click to op
 ## Testing
 
 Execute `yarn test` or `npm test` to execute integration tests against <plantuml.com/plantuml> live server
+
+Test script will create an HTML file for visual inspection of generated content. The file is in a constant and by default
+is /tmp/eleventy-plugin-plantuml-test.html. Simply open the file in your favorite browser and ensure that four diagrams 
+are present and look okay.
