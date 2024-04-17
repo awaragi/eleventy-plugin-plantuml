@@ -34,17 +34,39 @@ eleventyConfig.addPlugin(plantuml.plugin, {
   port: 8888,
   prefix: "",
   outputType: "svg",
-  imgClass: "plantuml", 
-  requestTimeout: undefined, // undefined or millisecondes
-  requestSocketTimeout: undefined, // undefined or millisecondes
+  imgClass: "plantuml" 
 });
 ```
 
 If the server options are omitted, the plugin defaults to <http://plantuml.com/plantuml> server for conversion, and to PNG for output type.
 
+### Styling
+
 By default the generated img tag will have class **plantuml** assigned to it. This can be overridden using options.imgClass value.
 
-Timeout options are passed directly to the underlying request object. See https://www.npmjs.com/package/sync-request. They default to sync-request
+### Request settings
+
+In the rare case where control of the http request settings is required, an optional setting "request" can be added to the plugin config object which will be passed directly to the underlying request object. See https://www.npmjs.com/package/sync-request for all available settings.
+
+```javascript
+const plantuml = require('eleventy-plugin-plantuml');
+eleventyConfig.addPlugin(plantuml.plugin, {
+  protocol: "http",
+  hostname: "localhost",
+  port: 8888,
+  prefix: "",
+  outputType: "svg",
+  imgClass: "plantuml",
+  request: {
+      timeout: ...
+      socketTimeout: ....
+      retry: ...
+      retryDelay: ...
+      maxRetries: ...
+  }
+});
+
+```
 
 ## Using in templates
 
