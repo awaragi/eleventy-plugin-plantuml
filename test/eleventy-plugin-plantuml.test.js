@@ -73,7 +73,7 @@ Bob -> Alice : hello
     appendContent("basic SVG conversion", img);
     expect(
       img.startsWith(
-        '<?xml version="1.0" encoding="us-ascii" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentStyleType="text/css" '
+          '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentStyleType="text/css" height="120px" preserveAspectRatio="none" style="width:110px;height:120px;background:#FFFFFF;" version="1.1" viewBox="0 0 110 120" width="110px" zoomAndPan="magnify">'
       )
     ).toBeTruthy();
   });
@@ -100,7 +100,7 @@ plugin -> MDH: img src="dataurl"
     appendContent("large SVG conversion", img);
     expect(
       img.startsWith(
-        '<?xml version="1.0" encoding="us-ascii" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentStyleType="text/css" '
+          '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentStyleType="text/css" height="425px" preserveAspectRatio="none" style="width:678px;height:425px;" version="1.1" viewBox="0 0 678 425" width="678.125px" zoomAndPan="magnify"><defs>'
       )
     ).toBeTruthy();
   });
